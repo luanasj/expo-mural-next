@@ -1,0 +1,50 @@
+.MuralProportions{
+    height: calc(100vh - var(--headerTitle-height));
+    width: 100vw;
+}
+
+.MuralAlignment{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    background-color: blue;
+    box-sizing: border-box;
+    overflow: auto;
+
+}
+
+.muralInside{
+    /* position: absolute; */
+    /* position:relative; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    height: 100%;
+    width:100%;
+    background-color: red;
+    transition: transform 0.5s;
+    transform-origin: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    /* transform-origin: center; */
+    
+}
+
+
+/* 
+div::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+  /* } */
+  
+  /* div::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor da barra */
+    /* border-radius: 4px; */
+  /* } */
+  
+  /* div::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor ao passar o mouse */
+  /* }  */

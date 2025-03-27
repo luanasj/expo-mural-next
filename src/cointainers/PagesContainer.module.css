@@ -1,0 +1,5 @@
+.pagesContainerAlignment{
+    width: 100vw;
+    height: calc(100vh - var(--headerTitle-height));
+    margin: 0 auto
+}

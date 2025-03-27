@@ -1,0 +1,15 @@
+.selectionPageProportions {
+    width: 100%;
+    height: 100%;
+}
+
+.selectionPageAppearance{
+    background-color: gray;
+}
+
+.selectionPageAlignment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

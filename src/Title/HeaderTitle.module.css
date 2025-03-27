@@ -1,0 +1,21 @@
+.headerProportions{
+    width: 100vw;
+    height: var(--headerTitle-height);
+}
+
+.headerAlignment{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: blueviolet;
+    box-sizing: border-box;
+    padding: 0px 5vw;
+}
+
+.headerText{
+    color: var(--std-gray);
+    font-size: 20px;
+}
+
+
+
