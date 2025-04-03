@@ -1,15 +1,12 @@
-import Image from "next/image";
+'use client'
 
-// import PagesContainer from '../cointainers/PagesContainer.module'
-// import Home from './Pages/Home.module'
-// import SelectionPage from '../Pages/SelectionPage.module'
-// import HeaderTitle from '../Title/HeaderTitle.module'
-// import DrawningUploader from "../contributionsInterfaces/DrawningUploader.module";
-import TextUploader from "@/contributionsInterfaces/TextUploader.module";
+import Home from "@/Pages/Home.module";
 
-export default function Home() {
+export default function Main() {
   return (
     <div>
+      <Home/>
+      {/* <Mural/> */}
       {/* <HeaderTitle title='expo'/> */}
       {/* <PagesContainer> */}
         {/* <Home/> */}
