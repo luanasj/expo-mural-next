@@ -1,10 +1,12 @@
 'use client'
 
-import Home from "@/Pages/Home.module";
+import Home from "@/feed/Home.module";
+import "page.scss"
+// import styles from "./page.module.css"
 
 export default function Main() {
   return (
-    <div>
+    <div className="aligment">
       <Home/>
       {/* <Mural/> */}
       {/* <HeaderTitle title='expo'/> */}

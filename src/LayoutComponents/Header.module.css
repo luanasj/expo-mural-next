@@ -1,6 +1,6 @@
 .headerProportions{
-    width: 100vw;
-    height: var(--headerTitle-height);
+    width: 100%;
+    height: 10vh;
 }
 
 .headerAlignment{

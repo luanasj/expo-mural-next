@@ -1,4 +1,6 @@
+'use client'
 import styles from "./ContributionChoiceBtn.module.css"
+
 
 interface iContributionChoiceBtn {
     btnText: string
