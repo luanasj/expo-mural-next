@@ -1,11 +1,13 @@
-import styles from "./VerticalBtnContainer.module.css"
+import "./VerticalBtnContainer.scss"
 
 interface VerticalBtnContainerProps {
     children: React.ReactNode
 }
 
 const VerticalBtnContainer : React.FC<VerticalBtnContainerProps> = ({children})=>{
-    return <div className={`${styles.containerAlignment}`}>{children}</div>
+    return (<div className="verticalContainer">
+                {children}
+            </div>)
 }
 
 export default VerticalBtnContainer

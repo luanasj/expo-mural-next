@@ -1,0 +1,38 @@
+.redirectionButton{
+    height: 40px;
+    min-width: 49px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0 10px;
+    background-color: var(--gray);
+    border-radius: 10px;
+
+    font-family: "Geologica", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #535353;
+
+    &:hover{
+        animation: pulse 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        transition: all 1s cubic-bezier(1, 0, 0, 1);
+        // color: #6e6e00dd;
+        // background: linear-gradient(300deg, #d9d9d9e0 25%, #ffff0050 30%,rgba(128, 0, 128, 0.286) 35%,#d9d9d9e1 40%);
+        background: linear-gradient(300deg, #d9d9d9ea 25%, #ffff0045 30%,#ffff0093 35%,#d9d9d9 40%);
+
+        // filter: brightness(0.5);
+        // backdrop-filter: blur(5px);
+
+    }
+}
+
+@keyframes pulse { 
+    0%, 100% { 
+        opacity: 1; 
+        // filter: brightness(0.5);
+        backdrop-filter: blur(5px);
+    } 
+    50% { 
+        opacity: .8; 
+    } 
+}

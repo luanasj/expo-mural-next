@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from "react"
-import ZoomBtn from "../buttons/ZoomBtn.module"
-import VerticalBtnContainer from "../cointainers/VerticalBtnContainer.module"
-import Mural from "../cointainers/Mural.module"
+import ZoomBtn from "../components/buttons/ZoomBtn"
+import VerticalBtnContainer from "../components/cointainers/VerticalBtnContainer"
+import Mural from "../components/cointainers/Mural.module"
 
-import styles from "./Home.module.css"
+import "./Home.scss"
 
 
 const Home : React.FC = ()=>{
@@ -21,10 +21,10 @@ const Home : React.FC = ()=>{
     
 
     return(
-        <section className={`${styles.HomePropotions}`}>
+        <section className="home">
             <VerticalBtnContainer>
-                <ZoomBtn text="+"  op={handleZoomIn} />
-                <ZoomBtn text="-"  op={handleZoomOut} />
+                <ZoomBtn text="+"  handler={handleZoomIn} />
+                <ZoomBtn text="−"  handler={handleZoomOut} />
             </VerticalBtnContainer>
             
             <Mural mScale={muralScale}/>

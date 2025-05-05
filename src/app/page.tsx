@@ -1,22 +1,23 @@
 'use client'
 
-import Home from "@/feed/Home.module";
-import "page.scss"
-// import styles from "./page.module.css"
+import Home from "@/pages/Home";
+import "./page.scss"
+import Header from "@/components/Layout/Header";
+import { Fragment } from "react";
 
 export default function Main() {
   return (
-    <div className="aligment">
-      <Home/>
-      {/* <Mural/> */}
-      {/* <HeaderTitle title='expo'/> */}
-      {/* <PagesContainer> */}
-        {/* <Home/> */}
+    <Fragment>
+      <Header title="expo."/>
+
+      <div className="alignment">
+        <Home/>
+
+        {/* <PagesContainer> */}
         {/* <SelectionPage/> */}
-      {/* </PagesContainer> */}
-      {/* <DrawningUploader/> */}
-      {/* <TextUploader/> */}
-      
-    </div>
+        {/* <DrawningUploader/> */}
+        {/* <TextUploader/> */} 
+      </div>
+    </Fragment>
   );
 }

@@ -1,4 +1,4 @@
-import DrawningCanvas from '../tools/DrawningCanvas.module'
+import DrawningCanvas from '../../tools/DrawningCanvas.module'
 import styles from './DrawningUploader.module.css'
 
 const DrawningUploader : React.FC = ()=>{

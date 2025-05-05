@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=National+Park:wght@200..800&display=swap');
+:root {
+  --white: #ffffff;
+  --black: #171717;
+  --gray:#d9d9d9; 
+
+
+}
+
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  width: 100dvw;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
+body {
+  background: var(--white);
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+}

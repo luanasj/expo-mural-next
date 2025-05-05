@@ -1,7 +1,7 @@
 'use client'
 
-import ContributionChoiceBtn from "../../buttons/ContributionChoiceBtn.module"
-import SelectionHub from "../../cointainers/SelectionHub.module"
+import ContributionChoiceBtn from "../../components/buttons/ContributionChoiceBtn.module"
+import SelectionHub from "../../components/cointainers/SelectionHub.module"
 // import ImageUploader from "../../contributionsInterfaces/ImageUploader.module"
 import styles from "./SelectionPage.module.css"
 

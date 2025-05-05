@@ -3,9 +3,9 @@
 
 import { Fragment, useRef, useState } from "react"
 import styles from "./ImageUploader.module.css"
-import EasyCrop from "../tools/EasyCrop.module"
-import getCroppedImg from "../tools/getCroppedImg"
-import saveImage from "../tools/saveImage"
+import EasyCrop from "../../tools/EasyCrop.module"
+import getCroppedImg from "../../tools/getCroppedImg"
+import saveImage from "../../tools/saveImage"
 
 const ImageUploader : React.FC = ()=>{
     const[image,setImage] = useState<File|null>(null)
