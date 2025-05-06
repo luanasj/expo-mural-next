@@ -3,7 +3,7 @@
 import { useState } from "react"
 import ZoomBtn from "../components/buttons/ZoomBtn"
 import VerticalBtnContainer from "../components/cointainers/VerticalBtnContainer"
-import Mural from "../components/cointainers/Mural.module"
+import Mural from "../components/cointainers/Mural"
 
 import "./Home.scss"
 
@@ -16,7 +16,8 @@ const Home : React.FC = ()=>{
     }
     
     function handleZoomOut() : void {
-        setMuralScale(muralScale - 1)
+
+        if(muralScale-1) setMuralScale(muralScale - 1);
     }
     
 
@@ -28,8 +29,6 @@ const Home : React.FC = ()=>{
             </VerticalBtnContainer>
             
             <Mural mScale={muralScale}/>
-
-
         </section>
     )
     
