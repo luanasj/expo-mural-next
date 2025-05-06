@@ -1,0 +1,13 @@
+.pageTitle{
+    color: var(--black);
+    font-family: "Geologica", Helvetica,sans-serif;
+    font-weight:600;
+    font-size: 32px;
+    letter-spacing: -0.04em;
+
+
+    &:hover{
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0.3;
+    }
+}

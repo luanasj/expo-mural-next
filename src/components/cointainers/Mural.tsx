@@ -1,15 +1,11 @@
 
-import { url } from "inspector"
 import "./Mural.scss"
-// import smileyCouple from ""
 
 interface MuralProps {
-    // children: React.ReactNode
     mScale: number
 }
 
-
-const Mural: React.FC<MuralProps> = ({/*children,*/mScale=1})=>{
+const Mural: React.FC<MuralProps> = ({mScale=1})=>{
     const images = [
         '/assets/side-view-smiley-couple-indoors.jpg',
         '/assets/side-view-smiley-couple-indoors.jpg',

@@ -1,4 +1,5 @@
 import RedirectionButton from "../buttons/RedirectionButton"
+import PageTitle from "../text/pageTitle"
 import "./Header.scss"
 
 interface iHeader {
@@ -8,7 +9,7 @@ interface iHeader {
 const Header: React.FC<iHeader> = ({title})=>{
     return (
         <header className="header">
-            <h3>{title}</h3>
+            <PageTitle title={title}/>
             <RedirectionButton text={"Crie um Post"} link={"#"}/>
         </header>
     )
