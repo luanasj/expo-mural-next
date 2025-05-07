@@ -21,7 +21,7 @@
 
       .post {
         display: flex;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: var(--aspect-ratio-img);
         
         img{
           width: 100%;

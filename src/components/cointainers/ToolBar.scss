@@ -1,0 +1,9 @@
+.toolBar{
+    display: flex;
+    column-gap: 12px;
+    padding: 10px 16px;
+    // border:1px solid;
+    background-color: var(--medium-gray);
+    border-radius: 5px;
+    width: fit-content;
+}

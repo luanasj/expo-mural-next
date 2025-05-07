@@ -1,6 +1,6 @@
 
 
-const getCroppedImg = async (imageSrc,pixelCrop)=>{
+const getCroppedImg = async (imageSrc: string,pixelCrop : {x:number,y:number,width:number,height:number})=>{
     const image = new Image()
     // const reader = new FileReader();
     // const blob = await fetch(imageSrc).then(response=>{return response.blob()})
@@ -33,7 +33,7 @@ const getCroppedImg = async (imageSrc,pixelCrop)=>{
 
             // console.log(image)
 
-            ctx.drawImage(
+            ctx?.drawImage(
                 image,
                 pixelCrop.x,
                 pixelCrop.y,

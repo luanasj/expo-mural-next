@@ -7,12 +7,17 @@ interface iContributionChoiceBtn {
     btnText: string
     btnColor: string
     imgSrc: string
-    btnMethod: () => void 
+    type: string
+    btnMethod: (option: string) => void 
 }
 
-const ContributionChoiceBtn : React.FC<iContributionChoiceBtn> = ({btnText,btnColor,imgSrc,btnMethod})=>{
+const ContributionChoiceBtn : React.FC<iContributionChoiceBtn> = ({btnText,btnColor,imgSrc,type,btnMethod})=>{
+    const clickHandler = ()=>{
+        btnMethod(type)
+    }
+
     return (
-        <button className="choiceBtn" style={{backgroundColor: `${btnColor}`}} onClick={btnMethod}>
+        <button className="choiceBtn" style={{backgroundColor: `${btnColor}`}} onClick={clickHandler}>
             <div>
                 <span> 
                     {btnText.split(" ").map((word,index)=>(

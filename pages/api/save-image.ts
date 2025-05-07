@@ -1,20 +1,20 @@
 import fs from 'fs';
+import { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
 
 export const config = {
     api: {
         bodyParser: {
-            sizeLimit: '15mb', // Ajuste o limite (ex.: 10mb)
+            sizeLimit: '15mb',
         },
     },
 };
 
-export default function saveImageHandler(req, res) {
+export default function saveImageHandler(req: NextApiRequest, res:NextApiResponse) {
     if(req.method == 'POST'){
         const {image,imageName} = req.body
 
         const base64Data = image.replace(/^data:image\/\w+;base64,/,'')
-        // console.log(base64Data)
 
         const buffer = Buffer.from(base64Data,'base64')
 

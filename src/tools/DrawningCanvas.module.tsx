@@ -2,7 +2,7 @@
 
 import styles from './DrawningCanvas.module.css'
 import { Fragment, useEffect, useRef, useState } from 'react'
-import saveImage from './saveImage'
+import saveImage from '../services/saveImage'
 
 const DrawningCanvas : React.FC = ()=>{
     // const [currentPos,setCurrentPos] = useState({x:null,y:null})

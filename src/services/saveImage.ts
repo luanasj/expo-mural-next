@@ -1,4 +1,6 @@
-export default async function saveImage(imgUrl,imageName) {
+
+
+export default async function saveImage(imgUrl:string,imageName:string) {
     const response = await fetch('api/save-image',{
         method: 'POST',
         body: JSON.stringify({image: imgUrl, imageName: imageName}),
@@ -7,9 +9,9 @@ export default async function saveImage(imgUrl,imageName) {
         }
     })
 
-    if(response.ok){
-        console.log('Imagem salva com sucesso')
-    } else {
-        console.error('Falha ao salvar a imagem')
+    return {
+        ok: response.ok,
+        message: response.ok ? 'Imagem salva com sucesso' : 'Falha ao salvar a imagem'
     }
+
 }

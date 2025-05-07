@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Cropper from "react-easy-crop";
 
+import "./EasyCrop.scss"
+
 interface iArea {
     x: number
     y: number
@@ -21,21 +23,22 @@ const EasyCrop : React.FC<iEasyCrop> = ({imgUrl,aspectX,aspectY,cropOP}) => {
     
     const onCropComplete = (croppedArea : iArea , croppedAreaPixels:iArea) : void => {
         cropOP(imgUrl,croppedAreaPixels)
-        // console.log(imgUrl)    
-        console.log(croppedArea, croppedAreaPixels)
+
     }
 
 
     return (
-        <Cropper
-            image={imgUrl}
-            crop={crop}
-            zoom={zoom}
-            aspect={aspectX/aspectY}
-            onCropChange={setCrop}
-            onCropComplete={onCropComplete}
-            onZoomChange={setZoom}
-        />
+        <div className="cropTool">
+            <Cropper
+                image={imgUrl}
+                crop={crop}
+                zoom={zoom}
+                aspect={aspectX/aspectY}
+                onCropChange={setCrop}
+                onCropComplete={onCropComplete}
+                onZoomChange={setZoom}
+            />
+        </div>
     
     )
 }

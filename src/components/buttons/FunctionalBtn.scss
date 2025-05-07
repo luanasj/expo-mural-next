@@ -1,0 +1,16 @@
+.functionalBtn{
+    width: 151px;
+    height: 53px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 53px;
+    vertical-align: middle;
+
+    &:hover{
+        transition: all .5s ease-out;
+        background-color: #fcd100 !important; 
+        color: black !important;
+    }
+}

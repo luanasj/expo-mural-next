@@ -1,0 +1,14 @@
+%flex-center{
+    display: flex;
+    align-items:center;
+}
+
+.aspect{
+    @extend %flex-center;
+    column-gap: 5px;
+    
+
+    label{
+        @extend %flex-center;
+    }
+}
