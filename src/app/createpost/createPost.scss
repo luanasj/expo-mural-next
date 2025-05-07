@@ -22,8 +22,11 @@
             height: 100%;
             max-height: 1024px;
             display: flex;
+            row-gap: 16px;
+            padding:33px;
+            // margin:8px;
             flex-direction: column;
-            border: 1px solid gray;
+            border: 1px dashed gray;
         }
 
    

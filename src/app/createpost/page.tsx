@@ -1,21 +1,24 @@
 'use client'
 
-import ContributionChoiceBtn from "../../components/buttons/ContributionChoiceBtn.module"
-import SelectionHub from "../../components/cointainers/SelectionHub.module"
+import { Fragment } from "react"
+import ContributionChoiceBtn from "../../components/buttons/ContributionChoiceBtn"
+import SelectionHub from "@/components/cointainers/SelectionHub"
+import RedirectionButton from "@/components/buttons/RedirectionButton"
 // import ImageUploader from "../../contributionsInterfaces/ImageUploader.module"
-import styles from "./SelectionPage.module.css"
 
 
 
-const SelectionPage : React.FC = ()=>{
+const CreatePost : React.FC = ()=>{
     return(
-        <SelectionHub message="Escolha como contribuir"> 
-            <ContributionChoiceBtn btnColor="blue" btnText="escolha uma imagem" btnMethod={()=>{}} heightPercentage={100/4} imgSrc="" />
-            <ContributionChoiceBtn btnColor="red" btnText="faça um desenho" btnMethod={()=>{}} heightPercentage={100/4} imgSrc="" />
-            <ContributionChoiceBtn btnColor="green" btnText="escreva um texto" btnMethod={()=>{}} heightPercentage={100/4} imgSrc="" />
-        </SelectionHub>
-        // <p>Hello World</p>
+        <Fragment>
+            <RedirectionButton link={"#"} text={"<Voltar ao Mural"}/>
+            <SelectionHub message="Envie suas memórias para o quadro"> 
+                <ContributionChoiceBtn btnColor="#5fa8d3" btnText="Escolha uma imagem" btnMethod={()=>{}} imgSrc="/assets/icons/picture-icon.svg" />
+                <ContributionChoiceBtn btnColor="#d67ab1" btnText="Faça um desenho" btnMethod={()=>{}} imgSrc="/assets/icons/paint-icon.svg" />
+                <ContributionChoiceBtn btnColor="#5e548e" btnText="Escreva um texto" btnMethod={()=>{}} imgSrc="/assets/icons/text-icon.svg" />
+            </SelectionHub>
+        </Fragment>
     )
 }
 
-export default SelectionPage
+export default CreatePost
