@@ -3,6 +3,8 @@
 import { SetStateAction, useRef, useState } from "react"
 import "./TextEditor.scss"
 
+type TextAlign = "left" | "right" | "center" | "justify"; // Declaração explícita
+
 const TextEditor : React.FC = ()=>{
     const [text,setText] = useState("")
     const [size,setSize] = useState(14)
@@ -14,7 +16,7 @@ const TextEditor : React.FC = ()=>{
     const [shadow,setShadow] = useState("none")
     const [border,setBorder] = useState('0')
     const [borderColor,setBorderColor] = useState('black')
-    const [align,setAlign] = useState('left')
+    const [align,setAlign] = useState<TextAlign>('left')
 
     const fontOptions = ['serif','sans-serif','monospace','cursive','fantasy']
     const alignOptions = useRef<string[]>(['left','right','center','justify'])      
@@ -59,21 +61,17 @@ const TextEditor : React.FC = ()=>{
     } 
 
     const changeAlignHandler = ()=>{
-        const newAligment:string = alignOptions.current.shift()
-       alignOptions.current.push(newAligment)
 
-        // console.log(alignOptions.current)
+       alignOptions.current.push(alignOptions.current.shift() ?? "");
 
-        setAlign(alignOptions.current[0])
-
-       
+       setAlign(alignOptions.current[0] as TextAlign)
+  
     }
 
 
     return(
 
-        <div>
-            <textarea style={{color: color,fontSize:`${size}px`,fontFamily: font, fontStyle:italic, fontWeight: weight, textShadow: shadow, WebkitTextStroke: `${border}px`,WebkitTextStrokeColor:borderColor,textAlign:align}}/*onSelect={(e)=>console.log(e)}*/ onChange={textAreaOnChangeHandler} name="" id=""></textarea> 
+        <div className="textEditor">
 
             <input onChange={colorChangeHandler} type="color" name="textColor" id="textColor" />
             <button onClick={()=>sizeChangeHandler(size=>size+1)}>A+</button>
@@ -100,6 +98,7 @@ const TextEditor : React.FC = ()=>{
 
             <button onClick={changeAlignHandler}>{align}</button>
 
+            <textarea style={{color: color,fontSize:`${size}px`,fontFamily: font, fontStyle:italic, fontWeight: weight, textShadow: shadow, WebkitTextStroke: `${border}px`,WebkitTextStrokeColor:borderColor,textAlign:align }}/*onSelect={(e)=>console.log(e)}*/ onChange={textAreaOnChangeHandler} name="" id=""></textarea> 
 
 
             <section style={{color: color,fontSize:`${size}px`,fontFamily: font, fontStyle:italic, fontWeight: weight, textShadow: shadow, WebkitTextStroke: `${border}px`,WebkitTextStrokeColor:borderColor,textAlign: align}}>
