@@ -10,6 +10,9 @@ import ToolBar from "../cointainers/ToolBar"
 import AspectRange from "../buttons/edit/AspectRange"
 import FunctionalBtn from "@/components/buttons/FunctionalBtn"
 import ButtonsContainer from "../cointainers/ButtonsContainer"
+// import { useRouter } from "next/router"
+import { redirect } from "next/navigation";
+
 
 
 
@@ -19,8 +22,11 @@ const ImageUploader = ({returnPageHandler} : {returnPageHandler: () => void})=>{
     const[previewUrl, setPreviewUrl] = useState<string>("")
     const[aspectX,setAspectX] = useState<number>(1)
     const[aspectY,setAspectY] = useState<number>(1)
-    const[cropBase64,setCropBase64] = useState<string>('') 
-    
+    const[cropBase64,setCropBase64] = useState<string>('')
+    const[flash, setFlash] = useState<{ success: boolean; message: string } | null>(null);
+ 
+    // const router = useRouter()
+
 
     const handleFile = (file: File): void => {
         setImage(file);
@@ -85,9 +91,15 @@ const ImageUploader = ({returnPageHandler} : {returnPageHandler: () => void})=>{
 
     }
 
-    const postBtnHandler = ()=>{
-        saveImage(cropBase64,`picture-${Date.now()}}`);
+    const postBtnHandler = async ()=>{
+        // const router = useRouter()
+        const resultado = await saveImage(cropBase64,`picture-${Date.now()}}`);
         URL.revokeObjectURL(previewUrl)
+        setFlash({ success: resultado.ok, message: resultado.message });
+        if(resultado.ok){
+            redirect("/")
+        }
+        // console.log(response)
     }
     
 

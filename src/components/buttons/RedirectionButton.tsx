@@ -1,15 +1,15 @@
 import "./RedirectionButton.scss"
 
-const RedirectionButton = ({text,link})=>{
-    const clickHandler = ()=>{
-        //Função de redirecionamento 
-    }
+import Link from "next/link";
 
-    return(
-        <button className="redirectionButton" onClick={clickHandler}>
-            {text}
-        </button>
-    )
-}
+const RedirectionButton = ({ text, link }: { text: string; link: string }) => {
+    return (
+        <Link href={link} passHref>
+            <button className="redirectionButton">
+                {text}
+            </button>
+        </Link>
+    );
+};
 
-export default RedirectionButton
+export default RedirectionButton;

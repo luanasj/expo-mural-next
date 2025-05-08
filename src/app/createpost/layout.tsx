@@ -1,6 +1,6 @@
 'use client'
 
-import PageTitle from "@/components/text/pageTitle";
+import PageTitle from "@/components/text/PageTitle";
 import "./createPost.scss"
 
 const CreatePostLayout = ({children,} : Readonly<{children: React.ReactNode;}>) => {

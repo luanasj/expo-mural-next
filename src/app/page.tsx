@@ -7,17 +7,12 @@ import { Fragment } from "react";
 
 export default function Main() {
   return (
-    <Fragment>
+    <div className="main">
       <Header title="expo."/>
 
       <div className="alignment">
         <Home/>
-
-        {/* <PagesContainer> */}
-        {/* <SelectionPage/> */}
-        {/* <DrawningUploader/> */}
-        {/* <TextUploader/> */} 
       </div>
-    </Fragment>
+    </div>
   );
 }
