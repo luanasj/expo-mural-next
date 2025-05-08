@@ -1,7 +1,7 @@
 'use client'
 
-import { Fragment, useRef, useState } from "react"
-import styles from "./TextEditor.module.css"
+import { SetStateAction, useRef, useState } from "react"
+import "./TextEditor.scss"
 
 const TextEditor : React.FC = ()=>{
     const [text,setText] = useState("")
@@ -17,49 +17,50 @@ const TextEditor : React.FC = ()=>{
     const [align,setAlign] = useState('left')
 
     const fontOptions = ['serif','sans-serif','monospace','cursive','fantasy']
-    const alignOptions = useRef(['left','right','center','justify'])      
+    const alignOptions = useRef<string[]>(['left','right','center','justify'])      
     
 
-    const textAreaOnChangeHandler = (evt)=>{
+    const textAreaOnChangeHandler = (evt : React.ChangeEvent<HTMLTextAreaElement>)=>{
         setText(evt.target.value)
         
     }
 
 
-    const sizeChangeHandler = (op) =>{
+    const sizeChangeHandler = (op : (a:number)=>SetStateAction<number>) =>{
         setSize(op(size))
     }
 
-    const colorChangeHandler = (evt)=>{
+    const colorChangeHandler = (evt: React.ChangeEvent<HTMLInputElement>)=>{
         setColor(evt.target.value)
     }
 
-    const fontChangeHandler = (evt) =>{
+    const fontChangeHandler = (evt: React.ChangeEvent<HTMLSelectElement>) =>{
         setFont(evt.target.value)
     }
 
-    const selectItalicHandler = (evt)=>{
+    const selectItalicHandler = (evt: React.ChangeEvent<HTMLInputElement>)=>{
         // console.log(evt)
         setItalic(evt.target.checked ? 'italic' : 'normal')
 
     }
 
-    const selectBoldHandler = (evt) =>{
+    const selectBoldHandler = (evt: React.ChangeEvent<HTMLInputElement>) =>{
         setWeight(evt.target.checked ? 'bold' : 'normal')
     }
 
-    const selectShadowHandler = (evt)=>{
+    const selectShadowHandler = (evt: React.ChangeEvent<HTMLInputElement>)=>{
         const shadowSize = size/4
         setShadow(evt.target.checked ? `${shadowSize}px ${shadowSize}px 4px ${color}` : 'none')
     }
 
-    const selectBorderHandler = (evt)=>{
+    const selectBorderHandler = (evt: React.ChangeEvent<HTMLInputElement>)=>{
         const borderSize = size/30
         setBorder(evt.target.checked ? `${borderSize}` : '0')
     } 
 
     const changeAlignHandler = ()=>{
-        alignOptions.current.push(alignOptions.current.shift())
+        const newAligment:string = alignOptions.current.shift()
+       alignOptions.current.push(newAligment)
 
         // console.log(alignOptions.current)
 
