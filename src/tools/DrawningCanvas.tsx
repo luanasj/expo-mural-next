@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Fragment, useEffect, useRef, useState } from 'react'
+import { FaPaintBrush, FaEraser } from 'react-icons/fa';
 import saveImage from '../services/saveImage'
 import ImageUploader from '@/components/contributionsInterfaces/ImageUploader'
 import ToolBar from '@/components/cointainers/ToolBar'
@@ -24,8 +25,6 @@ const DrawningCanvas = ({imgURLHandler}: {imgURLHandler : (url:string)=> void})=
         const canvas = canvasRef.current
         if(canvas){
           ctxRef.current = canvas.getContext('2d')
-        //   ctxRef.current.lineCap = "round"
-
           const rect = canvas.getBoundingClientRect()
 
           canvas.width = rect.width
@@ -33,6 +32,36 @@ const DrawningCanvas = ({imgURLHandler}: {imgURLHandler : (url:string)=> void})=
         }
 
     },[])
+
+    // useEffect(() => {
+    //     const updateCanvasSize = () => {
+    //       const canvas = canvasRef.current;
+    //       if (canvas) {
+    //         const ctx = canvas.getContext('2d');
+    //         // Salva o desenho atual. Note: isso captura apenas a área original.
+    //         if(ctx){
+    //             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    //             // Atualiza as dimensões do canvas
+    //             const rect = canvas.getBoundingClientRect();
+    //             canvas.width = rect.width;
+    //             canvas.height = rect.height;
+        
+    //             // Restaura o conteúdo salvo
+    //             ctx?.putImageData(imageData, 0, 0);
+    //             }
+      
+            
+    //       }
+    //     };
+      
+    //     updateCanvasSize();
+    //     window.addEventListener('resize', updateCanvasSize);
+      
+    //     return () => {
+    //       window.removeEventListener('resize', updateCanvasSize);
+    //     };
+    //   }, []);
+      
 
 
     const draw = (beginPos : iCanvasPos , endPos: iCanvasPos)=>{
@@ -103,11 +132,13 @@ const DrawningCanvas = ({imgURLHandler}: {imgURLHandler : (url:string)=> void})=
         setLineWidth(evt_target.valueAsNumber)
     }
 
-    // const onConfirmationBtnClickHandler = ()=>{
-    //     const canvas = canvasRef.current
+    const selectPencilHandler = ()=>{
+        setPencil(true)
+    }
 
-    //     if(canvas) saveImage(canvas.toDataURL(),`${Math.random()}`);
-    // }
+    const selectEraserHandler = ()=>{
+        setPencil(false)
+    }
 
     const eraseAllBtnClickHandler = ()=>{
         const canvas = canvasRef.current
@@ -119,18 +150,45 @@ const DrawningCanvas = ({imgURLHandler}: {imgURLHandler : (url:string)=> void})=
 
 
     return(
-        <Fragment>
+        <section className='canvasContainer'>
             <ToolBar>
                 <input type="color" name="colorPicker" id="colorPicker" onChange={onColorChangeHandler} />
-                <input type="radio" name="toolSelection" id="pencil" onChange={()=>{setPencil(true)}} checked={pencil}/>
-                <input type="radio" name="toolSelection" id="eraser" onChange={()=>{setPencil(false)}} checked={!pencil}/>
-                <button onClick={eraseAllBtnClickHandler}>Apagar Tudo</button>
-            </ToolBar>
+                {/* <input type="radio" name="toolSelection" id="pencil" onChange={selectPencilHandler} checked={pencil}/>
+                <input type="radio" name="toolSelection" id="eraser" onChange={selectEraserHandler} checked={!pencil}/> */}
+                {/* Input de Pincel, escondido */}
+                <input
+                    type="radio"
+                    name="toolSelection"
+                    id="pencil"
+                    onChange={selectPencilHandler}
+                    checked={pencil}
+                    style={{ display: 'none' }}
+                />
+                <label htmlFor="pencil" className={`icon-label ${pencil ? 'selected' : ''}`}>
+                    <FaPaintBrush size={15} />
+                </label>
+
+                {/* Input de Borracha, escondido */}
+                <input
+                    type="radio"
+                    name="toolSelection"
+                    id="eraser"
+                    onChange={selectEraserHandler}
+                    checked={!pencil}
+                    style={{ display: 'none' }}
+                />
+                <label htmlFor="eraser" className={`icon-label ${!pencil ? 'selected' : ''}`}>
+                    <FaEraser size={15} />
+                </label>
+
                 <input type="range" name="rangeChanger" id="rangeChanger"  max={50} min={0.5} value={lineWidth} onChange={onLineWidthChange}/>
-           
-            {/* <button onClick={onConfirmationBtnClickHandler}>Confirmar</button> */}
-            <canvas style={{touchAction: 'none'}} className="drawningCanvas" ref={canvasRef} onPointerDown={onMouseDownHandler} onPointerMove={onMouseMoveHandler} onPointerUp={onMouseUpHandler}></canvas>
-        </Fragment>
+                
+                <button onClick={eraseAllBtnClickHandler}>Limpar</button>
+            </ToolBar>
+           <div className="canvasWrapper">
+                <canvas className="drawningCanvas" ref={canvasRef} onPointerDown={onMouseDownHandler} onPointerMove={onMouseMoveHandler} onPointerUp={onMouseUpHandler}></canvas>
+           </div>
+        </section>
     )
     
 }
