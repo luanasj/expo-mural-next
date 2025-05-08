@@ -5,12 +5,17 @@ import ContributionChoiceBtn from "../../components/buttons/ContributionChoiceBt
 import SelectionHub from "@/components/cointainers/SelectionHub"
 import RedirectionButton from "@/components/buttons/RedirectionButton"
 import ImageUploader from "@/components/contributionsInterfaces/ImageUploader"
+import DrawningUploader from "@/components/contributionsInterfaces/DrawningUploader"
 
 
 
 
 const CreatePost : React.FC = ()=>{
     const [postType,setPostType] = useState<string>("");
+
+    const returnPageHandler = ()=>{
+        setPostType("")
+    }
 
     return(
         <Fragment>
@@ -26,7 +31,11 @@ const CreatePost : React.FC = ()=>{
             }
 
             {postType == "image" && 
-                <ImageUploader/>
+                <ImageUploader returnPageHandler={returnPageHandler}/>
+            }
+
+            {postType == "paint" && 
+                <DrawningUploader returnPageHandler={returnPageHandler}/>
             }
 
         </Fragment>

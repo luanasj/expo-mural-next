@@ -72,13 +72,11 @@ $shine-effect-white-2: rgba(255, 255, 255, 0.270);
     }
 }
 
-@media (max-height:480px){
+@media (max-height:1024px){
     .choiceBtn{
         div{
-            flex-direction: row;
-
             span{
-                line-height: 100%;
+                line-height: 120%;
                 width: fit-content;
             }
 
@@ -89,6 +87,23 @@ $shine-effect-white-2: rgba(255, 255, 255, 0.270);
         }
     }
 }
+
+
+@media (max-height:480px){
+    .choiceBtn{
+        div{
+            flex-direction: row;
+
+            span{
+                line-height: 100%;
+                width: fit-content;
+            }
+
+        }
+    }
+}
+
+
 
 
 

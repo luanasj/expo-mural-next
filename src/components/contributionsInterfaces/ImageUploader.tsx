@@ -86,7 +86,7 @@ const ImageUploader = ({returnPageHandler} : {returnPageHandler: () => void})=>{
     }
 
     const postBtnHandler = ()=>{
-        saveImage(cropBase64,`random${Math.random()}`);
+        saveImage(cropBase64,`picture-${Date.now()}}`);
         URL.revokeObjectURL(previewUrl)
     }
     
