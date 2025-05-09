@@ -21,7 +21,7 @@
       transform-origin: top left;
       display: grid;
       align-items: center;
-      touch-action: none;
+      touch-action: manipulation;
       // height:fit-content;
 
       .post {
