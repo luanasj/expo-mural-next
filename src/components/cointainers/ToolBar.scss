@@ -8,4 +8,8 @@
     background-color: var(--medium-gray);
     border-radius: 5px;
     width: fit-content;
+    max-width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+
 }

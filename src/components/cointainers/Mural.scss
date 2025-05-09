@@ -7,6 +7,8 @@
     align-items: center;
     scrollbar-width: none;
     -ms-overflow-style: none;
+     touch-action: pan-x pan-y; // permite o scroll
+    // overscroll-behavior: contain; // evita scroll de fundo
 
     &::-webkit-scrollbar{
       visibility: hidden;

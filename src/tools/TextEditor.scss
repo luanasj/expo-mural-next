@@ -1,3 +1,18 @@
 .textEditor{
-    
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    // border:1px solid;
+
+    .textTools{
+        display: flex;
+        column-gap: 12px;
+    }
+
+    textarea{
+        width:100%;
+        height:100%;
+        border: 2px dashed var(--gray);
+    }
 }

@@ -1,6 +1,6 @@
 
 -- Seleciona o banco de dados
-USE `dev_api`;
+USE `expo-mural`;
 
 -- Criação da tabela mural
 CREATE TABLE IF NOT EXISTS `mural` (

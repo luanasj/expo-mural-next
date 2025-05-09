@@ -4,12 +4,13 @@ interface iFunctionalBtn {
     color:string
     bg_color:string
     label:string
-    clickHandler: ()=> void  
+    clickHandler: ()=> void
+    disabled?: boolean  
 }
 
-const FunctionalBtn = ({color,bg_color,label,clickHandler} : iFunctionalBtn)=>{
+const FunctionalBtn = ({color,bg_color,label,clickHandler,disabled=false} : iFunctionalBtn)=>{
     return (
-        <button className='functionalBtn' onClick={clickHandler} style={{color: `${color}`,backgroundColor:`${bg_color}`}}> 
+        <button className='functionalBtn' disabled={disabled} onClick={clickHandler} style={{color: `${color}`,backgroundColor:`${bg_color}`}}> 
             {label}
         </button> 
     )

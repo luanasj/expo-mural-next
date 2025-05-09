@@ -10,6 +10,7 @@ import { redirect } from "next/navigation";
 const DrawningUploader = ({returnPageHandler} : {returnPageHandler: () => void})=>{
     const [drawningURL, setDrawningURL] = useState<string>("")
     const[flash, setFlash] = useState<{ success: boolean; message: string } | null>(null);
+    const [isPosting, setIsPosting] = useState(false);
 
     // const router = useRouter()
 
@@ -21,11 +22,15 @@ const DrawningUploader = ({returnPageHandler} : {returnPageHandler: () => void})
     }
 
     const postBtnHandler = async ()=>{
+        setIsPosting(true);
+
         // const router = useRouter()
         const resultado = await saveImage(drawningURL,`drawning-${Date.now()}}`);
         setFlash({ success: resultado.ok, message: resultado.message });
         if(resultado.ok){
             redirect("/")
+        } else {
+            setIsPosting(false);
         }
     }
 
@@ -34,7 +39,7 @@ const DrawningUploader = ({returnPageHandler} : {returnPageHandler: () => void})
             <DrawningCanvas imgURLHandler={setDrawningURL} />
             <ButtonsContainer>
                 <FunctionalBtn bg_color="#DADADA" color="#000000" label="Cancelar" clickHandler={cancelBtnHandler}/>
-                <FunctionalBtn bg_color="#686868" color="#ffffff" label="Postar" clickHandler={postBtnHandler}/>
+                <FunctionalBtn bg_color="#686868" color="#ffffff" label="Postar" clickHandler={postBtnHandler} disabled={isPosting}/>
             </ButtonsContainer>
         </div>
     )

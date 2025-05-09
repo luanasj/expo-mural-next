@@ -24,7 +24,8 @@ const ImageUploader = ({returnPageHandler} : {returnPageHandler: () => void})=>{
     const[aspectY,setAspectY] = useState<number>(1)
     const[cropBase64,setCropBase64] = useState<string>('')
     const[flash, setFlash] = useState<{ success: boolean; message: string } | null>(null);
- 
+    const [isPosting, setIsPosting] = useState(false);
+
     // const router = useRouter()
 
 
@@ -92,12 +93,16 @@ const ImageUploader = ({returnPageHandler} : {returnPageHandler: () => void})=>{
     }
 
     const postBtnHandler = async ()=>{
+        setIsPosting(true);
+
         // const router = useRouter()
         const resultado = await saveImage(cropBase64,`picture-${Date.now()}}`);
         URL.revokeObjectURL(previewUrl)
         setFlash({ success: resultado.ok, message: resultado.message });
         if(resultado.ok){
             redirect("/")
+        }  else {
+                setIsPosting(false); // reativa o botão se falhar
         }
         // console.log(response)
     }
@@ -128,7 +133,7 @@ const ImageUploader = ({returnPageHandler} : {returnPageHandler: () => void})=>{
             
             <ButtonsContainer>
                 <FunctionalBtn bg_color="#DADADA" color="#000000" label="Cancelar" clickHandler={cancelBtnHandler}/>
-                <FunctionalBtn bg_color="#686868" color="#ffffff" label="Postar" clickHandler={postBtnHandler}/>
+                <FunctionalBtn bg_color="#686868" color="#ffffff" label="Postar" disabled={isPosting} clickHandler={postBtnHandler}/>
             </ButtonsContainer>
         </div>
         
